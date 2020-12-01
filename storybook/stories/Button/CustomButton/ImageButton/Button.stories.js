@@ -2,8 +2,8 @@ import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { StyleSheet, Text, Image } from 'react-native';
-import { TNFButton, THButton, TOButton, TWFButton } from '.';
+import { StyleSheet, Text, Image, ToastAndroid } from 'react-native';
+import { TNFButton, THButton, TOButton, TWFButton, PressButton } from '.';
 import CenterView from '../../../CenterView';
 
 const button = require('../../../../../data/img/button.jpg')
@@ -29,6 +29,14 @@ storiesOf('Custom Button', module)
     <TWFButton onPress={action('clicked-twf')}>
       <Image source={button} style={styles.buttonImg} />
     </TWFButton>
+  ))
+  .add('Pressable', () => (
+    <PressButton 
+      onPress={action('pressed')}
+      onLongPress={action('long pressed')}
+    >
+      <Text>Press Me</Text>
+    </PressButton>
   ));
 
 
